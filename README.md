@@ -23,8 +23,10 @@ Paste the following rule (Run every 5 minutes)
 cargo build --release
 ```
 
-# Build for RPI4
+# Cross compile for Linux from macOS
 
 ```console
-rustup target add aarch64-unknown-linux-gnu
+rustup target add x86_64-unknown-linux-gnu
+brew install SergioBenitez/osxct/x86_64-unknown-linux-gnu
+CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-unknown-linux-gnu-gcc cargo build --target=x86_64-unknown-linux-gnu --release
 ```
