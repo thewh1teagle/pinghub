@@ -14,7 +14,7 @@ crontab -e
 
 Paste the following rule (Run every 5 minutes)
 ```
-*/5 * * * * /path/to/notirust
+*/1 * * * * /home/pi/gitofy/target/release/gitofy
 ```
 
 # Build
