@@ -1,8 +1,8 @@
-use std::env;
+use std::{env, time::Duration};
 use dotenv::dotenv;
 use eyre::{Context, Ok, Result};
 mod notification;
-use reqwest::blocking::Client;
+use reqwest::blocking::ClientBuilder;
 use notification::State;
 mod ntfy;
 mod github;
@@ -16,7 +16,7 @@ fn main() -> Result<()> {
     let mut state = State::try_create().unwrap();
 
     log::debug!("ntfy_url: {}", ntfy_url);
-    let client = Client::new();
+    let client = ClientBuilder::new().timeout(Duration::from_secs(5)).build()?;
     let notifications = github::get_notifications(&client, &github_token)?;
     
     for notification in notifications {
