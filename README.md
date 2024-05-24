@@ -22,3 +22,9 @@ Paste the following rule (Run every 5 minutes)
 ```console
 cargo build --release
 ```
+
+# Build for RPI4
+
+```console
+rustup target add aarch64-unknown-linux-gnu
+```
