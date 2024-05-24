@@ -14,7 +14,7 @@ crontab -e
 
 Paste the following rule (Run every 5 minutes)
 ```
-*/1 * * * * /home/pi/pinghub/target/release/pinghub
+*/5 * * * * /home/pi/pinghub/target/release/pinghub
 ```
 
 # Build
