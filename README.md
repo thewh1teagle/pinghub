@@ -1,4 +1,4 @@
-# gitofy
+# pinghub
 
 Get push notifications from Github without checking the Email.
 
@@ -14,7 +14,7 @@ crontab -e
 
 Paste the following rule (Run every 5 minutes)
 ```
-*/1 * * * * /home/pi/gitofy/target/release/gitofy
+*/1 * * * * /home/pi/pinghub/target/release/pinghub
 ```
 
 # Build

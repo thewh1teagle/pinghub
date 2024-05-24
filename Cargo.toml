@@ -1,5 +1,5 @@
 [package]
-name = "gitofy"
+name = "pinghub"
 version = "0.1.0"
 edition = "2021"
 
@@ -10,7 +10,6 @@ dotenv = "0.15.0"
 env_logger = { version = "0.11.3", features = ["color"] }
 eyre = "0.6.12"
 log = "0.4.21"
-openssl = { version = "0.10.64", features = ["vendored"] } # Used internally by some crate, better for cross compile.
 reqwest = { version = "0.12.4", features = ["blocking", "json"] }
 serde = { version = "1.0.202", features = ["derive"] }
 serde_json = { version = "1.0.117", features = ["preserve_order"] }
