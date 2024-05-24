@@ -1,0 +1,15 @@
+[package]
+name = "notirust"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15.0"
+env_logger = { version = "0.11.3", features = ["color"] }
+eyre = "0.6.12"
+log = "0.4.21"
+reqwest = { version = "0.12.4", features = ["blocking", "json"] }
+serde = { version = "1.0.202", features = ["derive"] }
+serde_json = { version = "1.0.117", features = ["preserve_order"] }
