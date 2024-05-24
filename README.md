@@ -4,8 +4,9 @@ Get push notifications from Github without checking the Email.
 
 # Setup
 
-1. Copy [`.env.example`](.env.example) to `.env` and fill the values.
-2. Create cron job for `notirust`:
+1. Create bot in [`@BotFather`](https://t.me/BotFather)
+2. Copy [`.env.example`](.env.example) to `.env` and fill the values.
+3. Create cron job for `pinghub`:
 
 Open edit mode with
 ```console
