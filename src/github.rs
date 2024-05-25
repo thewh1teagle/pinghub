@@ -25,8 +25,8 @@ pub fn get_notifications(client: &Client, token: &str) -> Result<Vec<Notificatio
     for raw_notification in raw_notifications {
         let id = raw_notification["id"].as_str().unwrap().parse::<i128>().unwrap();
         let subject = &raw_notification["subject"];
-        let title = subject["title"].as_str().unwrap();
-        let url = subject["url"].as_str().unwrap();
+        let title = subject["title"].as_str().unwrap_or("No Title");
+        let url = subject["url"].as_str().unwrap_or("No Url");
         let url = url.replace("api.github.com/repos/", "github.com/");
         let respository = &raw_notification["repository"];
         let name = respository["name"].as_str().unwrap_or("Uknown Respository");
