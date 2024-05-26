@@ -26,11 +26,12 @@ pub fn get_notifications(client: &Client, token: &str) -> Result<Vec<Notificatio
         let id = raw_notification["id"].as_str().unwrap().parse::<i128>().unwrap();
         let subject = &raw_notification["subject"];
         let title = subject["title"].as_str().unwrap_or("No Title");
-        let url = subject["url"].as_str().unwrap_or("No Url");
-        let url = url.replace("api.github.com/repos/", "github.com/");
+        let url = subject["url"].as_str().map(|u| u.replace("api.github.com/repos/", "github.com/"));
+        let kind = subject["type"].as_str().unwrap_or("Uknown Type").to_string(); 
         let respository = &raw_notification["repository"];
-        let name = respository["name"].as_str().unwrap_or("Uknown Respository");
-        let notification = Notification {id, title: title.into(), url: url.into(), repo_name: name.into()};
+        let html_url = respository["html_url"].as_str().map(|s| s.to_string());
+        let repo_name = respository["name"].as_str().map(|s| s.to_string());
+        let notification = Notification {id, title: title.into(), url, repo_name, kind, repo_url: html_url};
         notifications.push(notification);
     }
     notifications.sort_by(|a, b| a.id.cmp(&b.id));

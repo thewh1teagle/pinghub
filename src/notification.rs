@@ -31,9 +31,11 @@ impl State {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Notification {
     pub id: i128,
+    pub kind: String,
     pub title: String,
-    pub url: String,
-    pub repo_name: String
+    pub url: Option<String>,
+    pub repo_url: Option<String>,
+    pub repo_name: Option<String>,
 }
 
 impl Notification {
