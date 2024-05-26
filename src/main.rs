@@ -26,9 +26,10 @@ fn main() -> Result<()> {
     let notifications = github::get_notifications(&client, &github_token)?;
     
     for notification in notifications {
-        let is_new = notification.is_new(&mut state);
-        log::debug!("id: {} last: {:?} is_new: {}", notification.id, state.last_id, is_new);
-        if is_new {
+        log::debug!("id: {} last: {:?} updated_at: {:?}", notification.id, state.last_updated_at, notification.updated_at);
+        if notification.is_new(&mut state) {
+            state.last_updated_at = notification.updated_at.clone();
+            state.save();
             telegram::send_notification(&client, &bot_token, &user_id, &notification)?;
         }
     }

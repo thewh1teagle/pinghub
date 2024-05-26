@@ -31,7 +31,8 @@ pub fn get_notifications(client: &Client, token: &str) -> Result<Vec<Notificatio
         let respository = &raw_notification["repository"];
         let html_url = respository["html_url"].as_str().map(|s| s.to_string());
         let repo_name = respository["name"].as_str().map(|s| s.to_string());
-        let notification = Notification {id, title: title.into(), url, repo_name, kind, repo_url: html_url};
+        let updated_at = raw_notification["updated_at"].as_str().map(|s| s.to_string());
+        let notification = Notification {id, title: title.into(), url, repo_name, kind, repo_url: html_url, updated_at};
         notifications.push(notification);
     }
     notifications.sort_by(|a, b| a.id.cmp(&b.id));
