@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/data
+    environment:
+      - STATE_PATH=/data/state.json
+    env_file:
+      - .env
+    restart: unless-stopped
+    
