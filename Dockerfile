@@ -18,7 +18,6 @@ FROM linux-base AS run
 WORKDIR /app
 COPY --from=python-base $UV_PYTHON_INSTALL_DIR $UV_PYTHON_INSTALL_DIR
 COPY --from=python-base $UV_PROJECT_ENVIRONMENT $UV_PROJECT_ENVIRONMENT
-COPY --from=python-base /app /app
 COPY src /app/src
 
 ENV PATH="/app/.venv/bin:$PATH"
