@@ -1,9 +1,10 @@
 services:
   app:
+    user: "1000:1000"
     build:
       dockerfile: Dockerfile
     volumes:
-      - ./data:/data
+      - ./data:/data:rw
     environment:
       - STATE_PATH=/data/state.json
     env_file:

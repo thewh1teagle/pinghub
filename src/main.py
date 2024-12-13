@@ -44,7 +44,7 @@ def main():
                 state.last_updated_at = notification.updated_at
                 state.save()
                 send_notification(bot_token, user_id, notification)
-        log.info(f'Sleep for {interval}')
+        log.info(f'Sleep for {interval} seconds')
         time.sleep(interval)
 
 
