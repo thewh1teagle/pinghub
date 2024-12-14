@@ -11,11 +11,3 @@ Get push notifications from Github without checking the Email.
 ```console
 docker compose up -d
 ```
-
-## Build
-
-```console
-docker build -t pinghub
-docker tag pinghub:latest
-docker run pinghub
-```
